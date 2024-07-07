@@ -1,0 +1,69 @@
+/* Custom css code goes here */
+
+label.error
+{
+    color: red !important;
+    position: initial;
+    padding-left: 0px;
+    font-weight: 400 !important;
+}
+
+
+/* loader */
+
+.loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #00000075;
+    z-index: 9999; /* Ensures the loader is above all other content */
+}
+
+.loader {
+    width: 40px;
+    aspect-ratio: 1;
+    background: #554236;
+    display: grid;
+    transform-origin: top right;
+    animation: l5-0 4s infinite linear;
+}
+
+.loader::before,
+.loader::after {
+    content: "";
+    grid-area: 1/1;
+    background: #f77825;
+    transform-origin: inherit;
+    animation: inherit;
+    animation-name: l5-1;
+    animation-duration: 1s;
+}
+
+.loader::after {
+    background:#60B99A;
+    --s:60deg;
+}
+
+@keyframes l5-0 {
+    0%,5%   {transform: rotate(0)}
+    25%,30% {transform: rotate(90deg)}
+    50%,55% {transform: rotate(180deg)}
+    75%,80% {transform: rotate(270deg)}
+    100%    {transform: rotate(360deg)}
+}
+
+@keyframes l5-1 {
+    50% {transform: rotate(var(--s,30deg))}
+    100% {transform: rotate(0)}
+}
+
+
+.card-body::after, .card-footer::after, .card-header::after 
+    {
+        display: none !important;
+    }
